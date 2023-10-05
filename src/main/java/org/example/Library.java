@@ -34,21 +34,23 @@ public class Library implements IManageable{
         items.remove(item);
     }
     @Override
-    public void listAvailable(){
-        System.out.println("Available items: ");
+    public List<Item> listAvailable(){
+       List<Item> available = new ArrayList<>();
         for(Item item : items){
             if(!item.getIsBorrowed()){
-                System.out.println(item.getTitle());
+                available.add(item);
             }
         }
+        return available;
     }
     @Override
-    public void listBorrowed(){
-        System.out.println("Borrowed items: ");
+    public List<Item> listBorrowed(){
+        List<Item> borrowed = new ArrayList<>();
         for(Patron patron : patrons){
             for(Item item : patron.getBorrowedItems()){
-                System.out.println(patron.getName() + ": " + item.getTitle());
+                borrowed.add(item);
             }
         }
+        return borrowed;
     }
 }

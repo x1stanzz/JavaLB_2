@@ -1,8 +1,10 @@
 package org.example;
 
+import java.util.List;
+
 public interface IManageable {
     void addItem(Item item);
     void removeItem(Item item);
-    void listAvailable();
-    void listBorrowed();
+    List<Item> listAvailable();
+    List<Item> listBorrowed();
 }
