@@ -23,6 +23,13 @@ public class TestLibrary {
         Assertions.assertEquals(2, library.listAvailable().size());
     }
     @Test
+    public void testRemoveItem(){
+        library.addItem(book);
+        library.addItem(dvd);
+        library.removeItem(book);
+        Assertions.assertEquals(1, library.listAvailable().size());
+    }
+    @Test
     public void testRegisterPatron(){
         library.registerPatron(patron);
         Assertions.assertTrue(library.getPatrons().contains(patron));
