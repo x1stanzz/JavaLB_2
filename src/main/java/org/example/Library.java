@@ -10,6 +10,9 @@ public class Library implements IManageable{
         this.items = new ArrayList<>();
         this.patrons = new ArrayList<>();
     }
+    public List<Patron> getPatrons(){
+        return patrons;
+    }
     public void registerPatron(Patron patron){
         patrons.add(patron);
     }
@@ -47,9 +50,7 @@ public class Library implements IManageable{
     public List<Item> listBorrowed(){
         List<Item> borrowed = new ArrayList<>();
         for(Patron patron : patrons){
-            for(Item item : patron.getBorrowedItems()){
-                borrowed.add(item);
-            }
+            borrowed.addAll(patron.getBorrowedItems());
         }
         return borrowed;
     }
