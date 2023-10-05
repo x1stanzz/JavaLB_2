@@ -3,11 +3,11 @@ package org.example;
 public abstract class Item {
     private String title;
     private String uniqueId;
-    private String author;
-    public Item(String title, String uniqueId, String author){
+    private boolean isBorrowed;
+    public Item(String title, String uniqueId){
         this.title = title;
         this.uniqueId = uniqueId;
-        this.author = author;
+        this.isBorrowed = false;
     }
     public String getTitle(){
         return title;
@@ -15,8 +15,11 @@ public abstract class Item {
     public String getUniqueId(){
         return uniqueId;
     }
-    public String getAuthor(){
-        return author;
+    public boolean getIsBorrowed(){
+        return isBorrowed;
+    }
+    public void setIsBorrowed(boolean borrowed){
+        isBorrowed = borrowed;
     }
 
     public abstract void borrowItem();
